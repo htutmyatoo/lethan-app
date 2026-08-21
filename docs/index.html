@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LetHan — Give your hands a voice</title>
+<meta name="description" content="LetHan turns simple hand gestures into speech, messages and useful actions. Join the public beta.">
+
+<!-- Fonts: Bricolage Grotesque (display), Inter (body), JetBrains Mono (data/captions) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      LetHan<span class="nav-logo-mm" lang="my">လက်ဟန်</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#beta">Beta</a>
+      <a href="#about">About</a>
+      <a href="#beta" class="btn btn-small btn-lacquer">Get Beta</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Public beta opening soon</p>
+        <h1 class="hero-title">Give your hands<br>a voice. <span class="hero-emoji" aria-hidden="true">🤟</span></h1>
+        <p class="hero-sub">Turn simple hand gestures into messages, speech and useful actions.</p>
+
+        <form class="signup-form" id="hero-form" novalidate>
+          <div class="field-row">
+            <label for="hero-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="hero-email"
+              name="email"
+              class="email-input"
+              placeholder="Enter your email"
+              autocomplete="email"
+              inputmode="email"
+              required>
+            <button type="submit" class="btn btn-lacquer btn-submit">
+              <span class="btn-label">Get the Beta</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+          <p class="form-note">We'll email you the beta link and occasional LetHan updates. No spam.</p>
+          <p class="form-status" id="hero-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="phone-mock">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+
+            <div class="phone-topbar">
+              <span class="dot dot-live"></span>
+              <span class="phone-topbar-label">CAMERA</span>
+            </div>
+
+            <div class="phone-camera">
+              <svg class="hand-glyph" viewBox="0 0 120 120" role="presentation">
+                <path id="hand-path" d="M60 96 C40 96 26 82 26 62 L26 40 C26 34 34 34 34 40 L34 58 M34 40 L34 26 C34 20 42 20 42 26 L42 56 M42 30 L42 20 C42 14 50 14 50 20 L50 56 M50 24 L50 18 C50 12 58 12 58 18 L58 58 M58 40 C66 40 70 46 70 54 L70 70 C70 86 84 96 60 96 Z"
+                      fill="none" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="scan-line"></div>
+            </div>
+
+            <div class="phone-status">
+              <span class="status-label" id="status-label">Reading gesture…</span>
+              <span class="status-confidence" id="status-confidence">— %</span>
+            </div>
+
+            <div class="phone-message-card">
+              <svg class="ink-underline" id="ink-underline" viewBox="0 0 280 20" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M4 12 C 60 4, 120 18, 160 10 C 200 3, 240 14, 276 9" />
+              </svg>
+              <p class="phone-message" id="phone-message">I'd like to order, please.</p>
+            </div>
+
+            <div class="phone-dock">
+              <button type="button" class="dock-gesture" data-gesture="palm" aria-pressed="true">✋</button>
+              <button type="button" class="dock-gesture" data-gesture="thumb" aria-pressed="false">👍</button>
+              <button type="button" class="dock-gesture" data-gesture="fist" aria-pressed="false">✊</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="section problem" id="about">
+    <div class="section-inner">
+      <p class="eyebrow reveal">The problem</p>
+      <h2 class="section-title big reveal">Communication shouldn't depend on how fast you can type.</h2>
+
+      <div class="problem-grid">
+        <p class="problem-line reveal">Ordering something on your own, without a companion stepping in first.</p>
+        <p class="problem-line reveal">Talking to a stranger who's never met your communication style before.</p>
+        <p class="problem-line reveal">Getting across an immediate need before the moment passes.</p>
+        <p class="problem-line reveal">Asking someone to speak to you directly, not to the person beside you.</p>
+        <p class="problem-line reveal">Situations where typing a full sentence just takes too long.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how-it-works dark-section" id="how-it-works">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-on-dark reveal">How LetHan works</p>
+      <h2 class="section-title big on-dark reveal">Three steps. Your pace.</h2>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-number">01</span>
+          <h3 class="step-title">Show a gesture</h3>
+          <p class="step-copy">LetHan recognises one of your configured hand gestures through the camera.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-number">02</span>
+          <h3 class="step-title">Match your shortcut</h3>
+          <p class="step-copy">Each gesture stands for a message or action that matters to you.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-number">03</span>
+          <h3 class="step-title">LetHan responds</h3>
+          <p class="step-copy">It speaks the message, shows it on screen, or runs another configured action.</p>
+        </div>
+      </div>
+
+      <!-- interactive demo -->
+      <div class="demo reveal">
+        <p class="demo-label">Try it — choose a gesture</p>
+        <div class="demo-controls" role="group" aria-label="Choose a gesture to preview">
+          <button type="button" class="demo-btn is-active" data-demo="palm">✋ Open palm</button>
+          <button type="button" class="demo-btn" data-demo="thumb">👍 Thumb up</button>
+          <button type="button" class="demo-btn" data-demo="fist">✊ Closed fist</button>
+        </div>
+        <div class="demo-output">
+          <span class="demo-arrow" aria-hidden="true">→</span>
+          <p class="demo-result" id="demo-result">"I'd like to order, please."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REAL-LIFE MOMENTS ============ -->
+  <section class="section moments">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Real-life moments</p>
+      <blockquote class="moment reveal">
+        <p>“I can order for myself, just give me a moment.”</p>
+      </blockquote>
+      <blockquote class="moment moment-right reveal">
+        <p>“Please ask me, not the person beside me.”</p>
+      </blockquote>
+      <blockquote class="moment reveal">
+        <p>“Sometimes I can't afford the time it takes to type.”</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ PERSONALIZED SHORTCUTS ============ -->
+  <section class="section shortcuts">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Personalised shortcuts</p>
+      <h2 class="section-title big reveal">Your gestures. Your messages. Your shortcuts.</h2>
+      <p class="section-lead reveal">LetHan doesn't just recognise a gesture — it recognises the meaning you gave it.</p>
+
+      <ul class="mapping-list">
+        <li class="mapping-row reveal">
+          <span class="mapping-gesture">✋<span class="mapping-name">Open palm</span></span>
+          <span class="mapping-arrow" aria-hidden="true">→</span>
+          <span class="mapping-result">“I'd like to order, please.”</span>
+        </li>
+        <li class="mapping-row reveal">
+          <span class="mapping-gesture">👍<span class="mapping-name">Thumb up</span></span>
+          <span class="mapping-arrow" aria-hidden="true">→</span>
+          <span class="mapping-result">“Yes, thank you.”</span>
+        </li>
+        <li class="mapping-row reveal">
+          <span class="mapping-gesture">✊<span class="mapping-name">Closed fist</span></span>
+          <span class="mapping-arrow" aria-hidden="true">→</span>
+          <span class="mapping-result mapping-emergency">Emergency action</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ MORE THAN VOICE ============ -->
+  <section class="section more-than-voice dark-section">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-on-dark reveal">Beyond speech</p>
+      <h2 class="section-title big on-dark reveal">Not every assistant starts with “Hey…”</h2>
+
+      <div class="action-grid">
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">🔊</span>
+          <h3>Speak a message</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">💬</span>
+          <h3>Show it on screen</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">📞</span>
+          <h3>Call a trusted person</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">✉️</span>
+          <h3>Send a message</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">🆘</span>
+          <h3>Trigger an emergency action</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRIVACY / ACCESSIBILITY ============ -->
+  <section class="section values">
+    <div class="section-inner values-inner">
+      <p class="eyebrow reveal">Built to be used every day</p>
+      <ul class="values-list">
+        <li class="reveal">Designed accessibility-first, from the first sketch.</li>
+        <li class="reveal">Simple controls — no complicated setup to communicate.</li>
+        <li class="reveal">Visual, voice and haptic feedback, so you always know it's working.</li>
+        <li class="reveal">Built for everyday moments, not demos.</li>
+        <li class="reveal">Your shortcuts are yours — you decide what each gesture means.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ BETA CTA ============ -->
+  <section class="section beta-cta" id="beta">
+    <div class="section-inner beta-inner">
+      <h2 class="section-title big reveal">Want to try LetHan?</h2>
+      <p class="section-lead reveal">Join the public beta and help shape an accessibility tool built around real communication needs.</p>
+
+      <form class="signup-form signup-form-cta reveal" id="beta-form" novalidate>
+        <div class="field-row">
+          <label for="beta-email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="beta-email"
+            name="email"
+            class="email-input"
+            placeholder="Enter your email"
+            autocomplete="email"
+            inputmode="email"
+            required>
+          <button type="submit" class="btn btn-lacquer btn-submit">
+            <span class="btn-label">Get the Beta</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="form-note">We'll email you the beta link and occasional LetHan updates. No spam.</p>
+        <p class="form-status" id="beta-form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">LetHan<span lang="my">လက်ဟန်</span></span>
+      <p class="footer-tag">Built with heart. 🤟</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#" class="footer-link">Instagram</a>
+      <a href="#" class="footer-link">Contact</a>
+      <a href="#" class="footer-link">Privacy</a>
+      <a href="#" class="footer-link">Open-source licences</a>
+    </nav>
+    <p class="footer-copy">© LetHan 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
