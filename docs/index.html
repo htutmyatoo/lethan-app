@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets\ic_playstore_legacy.png">
+<link rel="apple-touch-icon" href="assets\ic_playstore_legacy.png">
+<title>LetHan — Give your hands a voice</title>
+<meta name="description" content="LetHan turns simple hand gestures into speech, messages and useful actions. Try the public Android beta.">
+
+<!-- Fonts: Bricolage Grotesque (display), Inter (body), JetBrains Mono (data/captions) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="hero">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo" aria-label="LetHan home">
+      <img
+        src="assets/ic_playstore_legacy.png"
+        alt=""
+        class="nav-logo-icon"
+        aria-hidden="true"
+      >
+      LetHan<span class="nav-logo-mm" lang="my">လက်ဟန်</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#install">Install</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#beta-invite" class="btn btn-small btn-lacquer" data-beta-link>Try the Beta</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Public beta is now open</p>
+        <h1 class="hero-title">Give your hands<br>a voice. <span class="hero-emoji" aria-hidden="true">🤟</span></h1>
+        <p class="hero-sub">Turn simple hand gestures into messages, speech and useful actions.</p>
+
+        <div class="hero-actions" aria-label="LetHan beta actions">
+          <!-- TODO: Replace #beta-invite with your Firebase App Distribution group invite URL. -->
+          <a class="btn btn-lacquer" href="#beta-invite" data-beta-link>Try the Beta</a>
+          <a class="btn btn-secondary" href="#newsletter">Join Newsletter</a>
+        </div>
+        <p class="hero-note">Android beta · Free to test</p>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="phone-mock">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+
+            <div class="phone-topbar">
+              <span class="dot dot-live"></span>
+              <span class="phone-topbar-label">CAMERA</span>
+            </div>
+
+            <div class="phone-camera">
+              <svg class="hand-glyph" viewBox="0 0 120 120" role="presentation">
+                <path id="hand-path" d="M60 96 C40 96 26 82 26 62 L26 40 C26 34 34 34 34 40 L34 58 M34 40 L34 26 C34 20 42 20 42 26 L42 56 M42 30 L42 20 C42 14 50 14 50 20 L50 56 M50 24 L50 18 C50 12 58 12 58 18 L58 58 M58 40 C66 40 70 46 70 54 L70 70 C70 86 84 96 60 96 Z"
+                      fill="none" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="scan-line"></div>
+            </div>
+
+            <div class="phone-status">
+              <span class="status-label" id="status-label">Reading gesture…</span>
+              <span class="status-confidence" id="status-confidence">— %</span>
+            </div>
+
+            <div class="phone-message-card">
+              <svg class="ink-underline" id="ink-underline" viewBox="0 0 280 20" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M4 12 C 60 4, 120 18, 160 10 C 200 3, 240 14, 276 9" />
+              </svg>
+              <p class="phone-message" id="phone-message">Could I have a chicken wrap with no onions, no spicy sauce, and a bottle of still water?</p>
+            </div>
+
+            <div class="phone-dock">
+              <button type="button" class="dock-gesture" data-gesture="palm" aria-pressed="true">✋</button>
+              <button type="button" class="dock-gesture" data-gesture="thumb" aria-pressed="false">👍</button>
+              <button type="button" class="dock-gesture" data-gesture="fist" aria-pressed="false">✊</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="section problem" id="problem">
+    <div class="section-inner">
+      <p class="eyebrow reveal">The problem</p>
+      <h2 class="section-title big reveal">Communication shouldn't depend on how fast you can type.</h2>
+      <p class="section-lead reveal">Try one everyday interaction. There is no countdown — just notice what it takes to get a complete thought across.</p>
+
+      <div class="problem-challenge reveal" id="typing-challenge">
+        <div class="challenge-context">
+          <span class="challenge-kicker">Busy lunch · Someone is waiting</span>
+          <p class="challenge-question">“What would you like?”</p>
+          <p class="challenge-prompt">Type this response:</p>
+          <p class="challenge-target" id="challenge-target">Could I have a chicken wrap with no onions, no spicy sauce, and a bottle of still water?</p>
+        </div>
+
+        <form class="challenge-form" id="challenge-form" novalidate>
+          <label for="challenge-input" class="sr-only">Type the response shown above</label>
+          <textarea id="challenge-input" class="challenge-input" rows="3" placeholder="Type your response…" autocomplete="off" spellcheck="true"></textarea>
+          <div class="challenge-controls">
+            <span class="challenge-timer" id="challenge-timer" aria-live="off">0.0 seconds</span>
+            <button type="submit" class="btn btn-lacquer">Send answer</button>
+          </div>
+        </form>
+
+        <div class="challenge-result" id="challenge-result" role="status" aria-live="polite" hidden>
+          <p class="challenge-result-time">Your response took <strong id="challenge-final-time">0.0 seconds</strong> to compose.</p>
+          <p class="challenge-result-title">You got the message across. The moment had to wait.</p>
+          <a href="#how-it-works" class="challenge-bridge">What if the whole response was already one gesture away? <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="problem-context reveal" aria-label="Other moments where communication speed matters">
+        <p>When the need is immediate.</p>
+        <p>When the person you're speaking to doesn't know your communication style yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how-it-works dark-section" id="how-it-works">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-on-dark reveal">How LetHan works</p>
+      <h2 class="section-title big on-dark reveal">Three steps. Your pace.</h2>
+
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-number">01</span>
+          <h3 class="step-title">Show a gesture</h3>
+          <p class="step-copy">LetHan recognises one of your configured hand gestures through the camera.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-number">02</span>
+          <h3 class="step-title">Match your shortcut</h3>
+          <p class="step-copy">Each gesture stands for a message or action that matters to you.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-number">03</span>
+          <h3 class="step-title">LetHan responds</h3>
+          <p class="step-copy">It speaks the message, shows it on screen, or runs another configured action.</p>
+        </div>
+      </div>
+
+      <div class="demo reveal">
+        <p class="demo-label">Now try it — choose a gesture</p>
+        <div class="demo-controls" role="group" aria-label="Choose a gesture to preview">
+          <button type="button" class="demo-btn is-active" data-demo="palm">✋ Open palm</button>
+          <button type="button" class="demo-btn" data-demo="thumb">👍 Thumb up</button>
+          <button type="button" class="demo-btn" data-demo="fist">✊ Closed fist</button>
+        </div>
+        <div class="demo-output">
+          <span class="demo-arrow" aria-hidden="true">→</span>
+          <p class="demo-result" id="demo-result">“Could I have a chicken wrap with no onions, no spicy sauce, and a bottle of still water?”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PERSONALISED SHORTCUTS ============ -->
+  <section class="section shortcuts" id="shortcuts">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Personalised shortcuts</p>
+      <h2 class="section-title big reveal">Your gestures. Your messages. Your shortcuts.</h2>
+      <p class="section-lead reveal">A gesture has meaning because you gave it one. LetHan connects the gesture to the message or action you choose.</p>
+
+      <ul class="mapping-list">
+        <li class="mapping-row reveal">
+          <span class="mapping-gesture">✋<span class="mapping-name">Open palm</span></span>
+          <span class="mapping-arrow" aria-hidden="true">→</span>
+          <span class="mapping-result">“Could I have a chicken wrap…”</span>
+        </li>
+        <li class="mapping-row reveal">
+          <span class="mapping-gesture">👍<span class="mapping-name">Thumb up</span></span>
+          <span class="mapping-arrow" aria-hidden="true">→</span>
+          <span class="mapping-result">“Excuse me, I’m trying to get to Sunderland Station...”</span>
+        </li>
+        <li class="mapping-row reveal">
+          <span class="mapping-gesture">✊<span class="mapping-name">Closed fist</span></span>
+          <span class="mapping-arrow" aria-hidden="true">→</span>
+          <span class="mapping-result mapping-emergency">Emergency action</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ BEYOND SPEECH ============ -->
+  <section class="section more-than-voice dark-section" id="beyond-speech">
+    <div class="section-inner">
+      <p class="eyebrow eyebrow-on-dark reveal">Beyond speech</p>
+      <h2 class="section-title big on-dark reveal">Not every assistant starts with “Hey…”</h2>
+
+      <div class="action-grid">
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">🔊</span>
+          <h3>Speak a message</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">💬</span>
+          <h3>Show it on screen</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">📞</span>
+          <h3>Call a trusted person</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">✉️</span>
+          <h3>Send a message</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">🆘</span>
+          <h3>Trigger an emergency action</h3>
+        </div>
+        <div class="action-card reveal">
+          <span class="action-icon" aria-hidden="true">📳</span>
+          <h3>Feel the confirmation</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO INSTALL ============ -->
+  <section class="section install" id="install">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Install LetHan</p>
+      <h2 class="section-title big reveal">Choose your platform.</h2>
+      <p class="section-lead reveal">The public beta is available on Android. iOS support is coming later.</p>
+
+      <div class="platform-installer reveal">
+        <div class="platform-tabs" role="tablist" aria-label="Choose a platform">
+          <button class="platform-tab is-active" id="android-tab" type="button" role="tab" aria-selected="true" aria-controls="android-panel" data-platform-tab="android">
+            <span class="platform-tab-icon" aria-hidden="true">🤖</span>
+            Android
+            <span class="platform-tab-status">Beta</span>
+          </button>
+          <button class="platform-tab" id="ios-tab" type="button" role="tab" aria-selected="false" aria-controls="ios-panel" data-platform-tab="ios" tabindex="-1">
+            <span class="platform-tab-icon" aria-hidden="true">●</span>
+            iOS
+            <span class="platform-tab-status is-muted">Coming soon</span>
+          </button>
+        </div>
+
+        <div class="platform-panel is-active" id="android-panel" role="tabpanel" aria-labelledby="android-tab" data-platform-panel="android">
+          <div class="installer-heading">
+            <div>
+              <span class="installer-label">LetHan for Android</span>
+              <h3>Install the public beta</h3>
+              <p>LetHan is currently distributed directly to testers rather than through Google Play.</p>
+            </div>
+            <span class="installer-version">Beta v1.0.0</span>
+          </div>
+
+          <ol class="install-list">
+            <li class="install-list-item">
+              <span class="install-number">01</span>
+              <div>
+                <h4>Join the beta</h4>
+                <p>Click Try the Beta, enter your email on the Firebase invitation page, and join the tester list.</p>
+              </div>
+            </li>
+            <li class="install-list-item">
+              <span class="install-number">02</span>
+              <div>
+                <h4>Check your email</h4>
+                <p>Open the Firebase invitation email and follow the instructions to access the latest LetHan Android APK.</p>
+              </div>
+            </li>
+            <li class="install-list-item install-list-item-warning">
+              <span class="install-number">03</span>
+              <div>
+                <h4>Download & install</h4>
+                <p>Download the APK and install LetHan. If Android asks, allow your browser or file manager to install apps from this source.</p>
+                <p class="install-note">If Play Protect blocks the installation, use <strong>More details → Install anyway</strong> when available. If that option is not shown, 
+                  <strong>temporarily disable Scan apps with Play Protect</strong> (<a href="https://youtube.com/shorts/H52aJn5Amyk?">Watch Youtube Tutorial</a>), install LetHan from the official beta link, <strong class="mapping-emergency">turn Play Protect back on immediately.</strong></p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="installer-actions">
+            <!-- TODO: Set BETA_INVITE_URL in script.js to your Firebase App Distribution group invite URL. -->
+            <a class="btn btn-lacquer" href="#beta-invite" data-beta-link>Get LetHan for Android</a>
+            <span class="beta-badge">Android · Beta v1.0.0 · Free</span>
+          </div>
+          <p class="installer-security-note">Only install the APK reached through the official LetHan beta invitation.</p>
+        </div>
+
+        <div class="platform-panel" id="ios-panel" role="tabpanel" aria-labelledby="ios-tab" data-platform-panel="ios" hidden>
+          <div class="coming-soon-panel">
+            <span class="coming-soon-mark" aria-hidden="true">◌</span>
+            <span class="installer-label">LetHan for iOS</span>
+            <h3>Coming soon.</h3>
+            <p>We are focusing the current beta on Android first. Join the newsletter to hear when an iOS beta becomes available.</p>
+            <a class="btn btn-secondary" href="#newsletter">Join Newsletter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DONATE YOUR VOICE ============ -->
+  <section class="section donate-voice" id="donate-voice">
+    <div class="section-inner donate-voice-inner">
+      <div class="donate-voice-copy reveal">
+        <p class="eyebrow">Donate your voice</p>
+        <h2 class="section-title big">A voice can become part of someone else's independence.</h2>
+        <p class="section-lead">We're exploring more human, diverse voices for LetHan. If you'd like to contribute your voice or learn how voice donation works, reach out to us on Instagram.</p>
+        <a class="btn btn-lacquer" href="https://ig.me/m/lethan.app" target="_blank" rel="noopener noreferrer">Donate your voice via Instagram</a>
+      </div>
+      <div class="voice-wave reveal" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Opportunities ============ -->
+  <section class="section opportunities" id="opportunities">
+    <div class="section-inner">
+
+      <div class="opportunities-heading reveal">
+        <p class="eyebrow">Opportunities</p>
+
+        <h2 class="section-title big">
+          Help LetHan go further.
+        </h2>
+
+        <p class="section-lead">
+          Whether through sponsorship, investment, research, or collaboration,
+          we’re open to working with people and organisations who believe
+          communication should be more accessible.
+        </p>
+      </div>
+
+      <div class="opportunity-grid">
+
+        <article class="opportunity-card reveal">
+          <span class="opportunity-icon" aria-hidden="true">🤝</span>
+
+          <div>
+            <h3>Sponsor LetHan</h3>
+            <p>
+              Support development, accessibility testing, events,
+              infrastructure, or community outreach.
+            </p>
+          </div>
+        </article>
+
+        <article class="opportunity-card reveal">
+          <span class="opportunity-icon" aria-hidden="true">🚀</span>
+
+          <div>
+            <h3>Invest in LetHan</h3>
+            <p>
+              Explore early-stage opportunities to help LetHan grow beyond
+              beta and reach more people.
+            </p>
+          </div>
+        </article>
+
+        <article class="opportunity-card reveal">
+          <span class="opportunity-icon" aria-hidden="true">🧪</span>
+
+          <div>
+            <h3>Research & Accessibility</h3>
+            <p>
+              Collaborate on AAC research, user testing, accessibility
+              validation, education, healthcare, or community programmes.
+            </p>
+          </div>
+        </article>
+
+        <article class="opportunity-card reveal">
+          <span class="opportunity-icon" aria-hidden="true">✨</span>
+
+          <div>
+            <h3>Collaborate with us</h3>
+            <p>
+              Designers, developers, creators, organisations, and accessibility
+              advocates are welcome to explore ideas with LetHan.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="opportunities-actions reveal">
+        <a
+          href="mailto:hello.lethanapp@gmail.com?subject=LetHan%20Partnership%20Opportunity"
+          class="btn btn-lacquer"
+        >
+          Talk to us
+        </a>
+
+        <a
+          href="https://ko-fi.com/htutmyatoo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-secondary"
+        >
+          Support on Ko-fi
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER CARD ============ -->
+  <section class="section newsletter-card-section" id="newsletter">
+    <div class="section-inner newsletter-card reveal">
+      <div class="newsletter-copy">
+        <p class="eyebrow">Stay connected</p>
+        <h2 class="section-title big">Stay close to LetHan.</h2>
+        <p class="section-lead">Product updates, beta news and what we're building next.</p>
+      </div>
+
+      <form class="signup-form newsletter-form" id="newsletter-form" novalidate>
+        <div class="field-row">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            class="email-input"
+            placeholder="Enter your email"
+            autocomplete="email"
+            inputmode="email"
+            required>
+          <button type="submit" class="btn btn-lacquer btn-submit">
+            <span class="btn-label">Join Newsletter</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="form-note">Occasional LetHan updates. No spam.</p>
+        <p class="form-status" id="newsletter-form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">LetHan<span lang="my">လက်ဟန်</span></span>
+      <p class="footer-tag">Built with heart. 🤟</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#donate-voice" class="footer-link">Donate your voice</a>
+      <a href="#opportunities" class="footer-link">Opportunities</a>
+      <a href="#newsletter" class="footer-link">Newsletter</a>
+      <a href="https://www.instagram.com/lethan.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+      <a href="mailto:hello.lethanapp@gmail.com" class="footer-link">Contact</a>
+      <a href="#" class="footer-link">Privacy</a>
+      <a href="https://github.com/htutmyatoo/lethan-app" class="footer-link">Open-source licences</a>
+    </nav>
+    <p class="footer-copy">© LetHan <span id="current-year"></span></p>
+  </div>
+</footer>
+
+<!-- ============ BG MUSIC ============ -->
+<div class="spotify-sticky-player" id="spotify-player">
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0KM1TFnIzm4VTDTDsdgyQM?utm_source=generator&theme=0&si=f7d9ec4f0f554aeb" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
+<!-- <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('htutmyatoo', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support Us',
+    'floating-chat.donateButton.background-color': '#4F46E5',
+    'floating-chat.donateButton.text-color': '#fff',
+    'floating-chat.position': 'right'
+  });
+</script>
+<style>
+  .floatingchat-container-wrap {
+    right: 24px !important;
+    left: auto !important;
+  }
+</style> -->
+<script src="script.js"></script>
+</body>
+</html>
