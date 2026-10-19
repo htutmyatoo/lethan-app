@@ -407,15 +407,69 @@ a{ color: inherit; }
   border-radius: 0 0 14px 14px;
   z-index: 2;
 }
-.phone-screen{
+.phone-screen {
+  position: relative;
+  display: block;
   height: 100%;
-  background: linear-gradient(180deg, var(--app-card) 0%, var(--app-dark) 100%);
+  padding: 0;
+  background: var(--app-dark);
   border-radius: 32px;
-  display: flex;
-  flex-direction: column;
-  padding: 30px 16px 16px;
-  color: var(--paper);
   overflow: hidden;
+}
+
+.phone-promo-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone-sound-toggle {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #fff;
+  background: rgb(0 0 0 / 70%);
+  border: 1px solid rgb(255 255 255 / 55%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.phone-sound-toggle svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.phone-sound-toggle svg[hidden] {
+  display: none;
+}
+
+.phone-sound-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.phone-sound-toggle .sound-icon-on {
+  display: none;
+}
+
+.phone-sound-toggle:not(.is-muted) .sound-icon-muted {
+  display: none;
+}
+
+.phone-sound-toggle:not(.is-muted) .sound-icon-on {
+  display: block;
 }
 .phone-topbar{
   display: flex;
