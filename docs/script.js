@@ -328,6 +328,32 @@ function initNewsletterForm() {
   /* =======================================================
      Hero phone mock
      ======================================================= */
+  function initPhoneVideoSoundToggle() {
+  const video = document.getElementById('phone-promo-video');
+  const button = document.getElementById('phone-sound-toggle');
+
+  if (!video || !button) return;
+
+  function updateButton() {
+    button.classList.toggle('is-muted', video.muted);
+    button.setAttribute('aria-pressed', String(!video.muted));
+    button.setAttribute(
+      'aria-label',
+      video.muted ? 'Turn sound on' : 'Turn sound off'
+    );
+  }
+
+  button.addEventListener('click', () => {
+    video.muted = !video.muted;
+    updateButton();
+
+    if (!video.muted && video.paused) {
+      video.play().catch(() => {});
+    }
+  });
+
+  updateButton();
+}
   function initPhoneMock() {
     const dockButtons = document.querySelectorAll('.dock-gesture');
     const statusLabel = document.getElementById('status-label');
@@ -442,7 +468,7 @@ function initSpotifyVisibility() {
      Init
      ======================================================= */
   document.addEventListener('DOMContentLoaded', () => {
-    initSpotifyVisibility();
+    initPhoneVideoSoundToggle();
     initBetaLinks();
     initNewsletterForm();
     initTypingChallenge();
