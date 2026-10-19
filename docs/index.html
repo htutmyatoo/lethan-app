@@ -68,39 +68,36 @@
       <div class="hero-visual reveal" aria-hidden="true">
         <div class="phone-mock">
           <div class="phone-notch"></div>
-          <div class="phone-screen">
+            <div class="phone-screen">
+              <video
+                id="phone-promo-video"
+                class="phone-promo-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              >
+                <source src="assets/lethan-promo.mp4" type="video/mp4">
+              </video>
+              <button
+                class="phone-sound-toggle is-muted"
+                id="phone-sound-toggle"
+                type="button"
+                aria-label="Turn sound on"
+                aria-pressed="false"
+              >
+                <svg class="sound-icon-muted" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+                  <path d="m17 9 4 6m0-6-4 6"/>
+                </svg>
 
-            <div class="phone-topbar">
-              <span class="dot dot-live"></span>
-              <span class="phone-topbar-label">CAMERA</span>
+                <svg class="sound-icon-on" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M11 5 6 9H3v6h3l5 4V5Z"/>
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/>
+                </svg>
+              </button>
             </div>
-
-            <div class="phone-camera">
-              <svg class="hand-glyph" viewBox="0 0 120 120" role="presentation">
-                <path id="hand-path" d="M60 96 C40 96 26 82 26 62 L26 40 C26 34 34 34 34 40 L34 58 M34 40 L34 26 C34 20 42 20 42 26 L42 56 M42 30 L42 20 C42 14 50 14 50 20 L50 56 M50 24 L50 18 C50 12 58 12 58 18 L58 58 M58 40 C66 40 70 46 70 54 L70 70 C70 86 84 96 60 96 Z"
-                      fill="none" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <div class="scan-line"></div>
-            </div>
-
-            <div class="phone-status">
-              <span class="status-label" id="status-label">Reading gesture…</span>
-              <span class="status-confidence" id="status-confidence">— %</span>
-            </div>
-
-            <div class="phone-message-card">
-              <svg class="ink-underline" id="ink-underline" viewBox="0 0 280 20" preserveAspectRatio="none" aria-hidden="true">
-                <path d="M4 12 C 60 4, 120 18, 160 10 C 200 3, 240 14, 276 9" />
-              </svg>
-              <p class="phone-message" id="phone-message">Could I have a chicken wrap with no onions, no spicy sauce, and a bottle of still water?</p>
-            </div>
-
-            <div class="phone-dock">
-              <button type="button" class="dock-gesture" data-gesture="palm" aria-pressed="true">✋</button>
-              <button type="button" class="dock-gesture" data-gesture="thumb" aria-pressed="false">👍</button>
-              <button type="button" class="dock-gesture" data-gesture="fist" aria-pressed="false">✊</button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -487,9 +484,9 @@
 </footer>
 
 <!-- ============ BG MUSIC ============ -->
-<div class="spotify-sticky-player" id="spotify-player">
+<!-- <div class="spotify-sticky-player" id="spotify-player">
   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0KM1TFnIzm4VTDTDsdgyQM?utm_source=generator&theme=0&si=f7d9ec4f0f554aeb" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</div>
+</div> -->
 
 <!-- <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
